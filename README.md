@@ -6,7 +6,7 @@ What is the best coffee? Taste and price analytics based on CoffeeReview reviews
 Статистика відсутніх значень по кожній колонці: coffee_name - 0; total_score - 3 відсутніх значення; roaster_location - 0; coffee_origin - 6; roast_level - 23; est_price - 116; agtron_ground - 10; agtron_roast - 10; origin_country - 441; price_per_ounce - 259 пустих значень. В колонках total_score, coffee_origin, roast_level я замінила пусті значення на "UNKNOWN". 
 
 В колонці coffee_origin я замінила знак ';' на ',' і за допомогою формули REGEXEXTRACT дістала назву країни з цієї колонки. Далі привела цю колонку до єдиного формату.
-Колонку est_price покроково почала приводити до формату "ціна в доларах за 1 г". 
+Колонку est_price покроково почала приводити до формату "ціна в доларах за 1 г". Колонку price_per_ounce повністю видалила, адже дані в ній були не вірно пораховані. 
 1. В першу чергу витягла всі можливі варіанти та символи валюти в стовпці est_price. Ось відформатований список унікальних валют.
 
 ![1](https://github.com/user-attachments/assets/c9f40738-34f3-438d-92df-d7e06b627d16)
@@ -46,12 +46,29 @@ Also excluded rows where unit could not be extracted (marked as #N/A) — total 
 
 ![4](https://github.com/user-attachments/assets/0e6ccffc-b560-4164-97a8-cdf330e9248b)
 
+5. Створюю колонку coffee_in_grams і переводжу унції в грами.
+
+![5](https://github.com/user-attachments/assets/9a6d3a65-94cb-4afe-aea2-072c4531582d)
+
+6. Створюю колонку price_in_USD, щоб привести ціну за каву тільки в долари США.
+
+![6](https://github.com/user-attachments/assets/b4d2a411-d699-4218-9693-957e05caafe5)
+
+7. Створюю фінальну колонку price_of_1_gram_in_USD, щоби дізнатись ціну за 1 г кави в доларах США.
+
+![7](https://github.com/user-attachments/assets/64719ed6-4839-47fe-a5f2-7b1fed6d24ec)
 
 
-6. Створюю колонку numeric_part, щоб витягти ціну з колонки est_price.
 
-7. Створюю колонку currency для визначення валюти.
 
+
+06.06.2025 Починаю роботу з колонкою coffee_origin.
+
+
+
+
+
+ 
 
 
 
